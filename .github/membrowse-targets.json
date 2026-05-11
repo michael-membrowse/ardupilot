@@ -1,0 +1,52 @@
+[
+  {
+    "target_name": "CubeOrange-copter",
+    "setup_cmd": "git config --global --add safe.directory $GITHUB_WORKSPACE && echo \"PATH=/usr/lib/ccache:/opt/gcc-arm-none-eabi-10/bin:/github/home/.local/bin:$PATH\" >> $GITHUB_ENV",
+    "build_cmd": "./waf configure --board CubeOrange && ./waf copter",
+    "elf": "build/CubeOrange/bin/arducopter",
+    "ld": "build/CubeOrange/ldscript.ld build/CubeOrange/common.ld",
+    "map_file": "build/CubeOrange/Linker.map",
+    "linker_vars": "__main_stack_size__=0x600 __process_stack_size__=0x1C00",
+    "skip_sections": ".heap .crash_log"
+  },
+  {
+    "target_name": "Pixhawk6X-plane",
+    "setup_cmd": "git config --global --add safe.directory $GITHUB_WORKSPACE && echo \"PATH=/usr/lib/ccache:/opt/gcc-arm-none-eabi-10/bin:/github/home/.local/bin:$PATH\" >> $GITHUB_ENV",
+    "build_cmd": "./waf configure --board Pixhawk6X && ./waf plane",
+    "elf": "build/Pixhawk6X/bin/arduplane",
+    "ld": "build/Pixhawk6X/ldscript.ld build/Pixhawk6X/common.ld",
+    "map_file": "build/Pixhawk6X/Linker.map",
+    "linker_vars": "__main_stack_size__=0x600 __process_stack_size__=0x1C00",
+    "skip_sections": ".heap .crash_log"
+  },
+  {
+    "target_name": "MatekF405-Wing-plane",
+    "setup_cmd": "git config --global --add safe.directory $GITHUB_WORKSPACE && echo \"PATH=/usr/lib/ccache:/opt/gcc-arm-none-eabi-10/bin:/github/home/.local/bin:$PATH\" >> $GITHUB_ENV",
+    "build_cmd": "./waf configure --board MatekF405-Wing && ./waf plane",
+    "elf": "build/MatekF405-Wing/bin/arduplane",
+    "ld": "build/MatekF405-Wing/ldscript.ld build/MatekF405-Wing/common.ld",
+    "map_file": "build/MatekF405-Wing/Linker.map",
+    "linker_vars": "__main_stack_size__=0x600 __process_stack_size__=0x1C00",
+    "skip_sections": ".heap .crash_log"
+  },
+  {
+    "target_name": "fmuv3-copter",
+    "setup_cmd": "git config --global --add safe.directory $GITHUB_WORKSPACE && echo \"PATH=/usr/lib/ccache:/opt/gcc-arm-none-eabi-10/bin:/github/home/.local/bin:$PATH\" >> $GITHUB_ENV",
+    "build_cmd": "./waf configure --board fmuv3 && ./waf copter",
+    "elf": "build/fmuv3/bin/arducopter",
+    "ld": "build/fmuv3/ldscript.ld build/fmuv3/common.ld",
+    "map_file": "build/fmuv3/Linker.map",
+    "linker_vars": "__main_stack_size__=0x600 __process_stack_size__=0x1C00",
+    "skip_sections": ".heap .crash_log"
+  },
+  {
+    "target_name": "CubeOrange-periph",
+    "setup_cmd": "git config --global --add safe.directory $GITHUB_WORKSPACE && echo \"PATH=/usr/lib/ccache:/opt/gcc-arm-none-eabi-10/bin:/github/home/.local/bin:$PATH\" >> $GITHUB_ENV",
+    "build_cmd": "./waf configure --board CubeOrange-periph && ./waf AP_Periph",
+    "elf": "build/CubeOrange-periph/bin/AP_Periph",
+    "ld": "build/CubeOrange-periph/ldscript.ld build/CubeOrange-periph/common.ld",
+    "map_file": "build/CubeOrange-periph/Linker.map",
+    "linker_vars": "__main_stack_size__=0x600 __process_stack_size__=0x1C00",
+    "skip_sections": ".heap .crash_log"
+  }
+]
